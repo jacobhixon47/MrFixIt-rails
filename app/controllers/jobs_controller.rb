@@ -34,9 +34,13 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if worker_signed_in?
-      @job.update(pending: true, worker_id: current_worker.id)
-      redirect_to worker_path(current_worker)
-      flash[:notice] = "You've successfully claimed this job."
+      if @job.update(pending: true, worker_id: current_worker.id)
+        respond_to do |format|
+          flash[:notice] = "You've successfully claimed this job."
+          format.html { redirect_to job_path(@job) }
+          format.js
+        end
+      end
     elsif user_signed_in? || !user_signed_in?
       flash[:notice] = 'You must have a worker account to claim a job. Register for one using the link in the navbar above.'
       redirect_to job_path(@job)

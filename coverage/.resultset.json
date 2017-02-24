@@ -655,7 +655,7 @@
         null,
         null,
         1,
-        5,
+        6,
         null,
         null,
         1,
@@ -675,6 +675,10 @@
         1,
         1,
         1,
+        2,
+        1,
+        null,
+        null,
         2,
         2,
         2,
@@ -699,8 +703,8 @@
       "/Users/Jacob/Code/projects/fixit/app/controllers/workers_controller.rb": [
         1,
         1,
-        2,
-        2,
+        1,
+        1,
         null,
         null,
         1,
@@ -845,6 +849,6 @@
         null
       ]
     },
-    "timestamp": 1487923436
+    "timestamp": 1487924758
   }
 }

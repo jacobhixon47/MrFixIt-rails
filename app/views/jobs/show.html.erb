@@ -6,5 +6,5 @@
   <p>Someone has already claimed this job; it's currently pending.</p>
 <% else %>
 <p>No one has claimed this job!</p>
-<%= link_to "click here to claim it now", job_path(@job), :method => "patch" %>
+<%= link_to "click here to claim it now", job_path(@job), :id => @job.id.to_s + '-claim-job', :method => "patch" %>
 <% end %>
