@@ -23,11 +23,11 @@
         <% elsif user_signed_in? %>
           <p class="login-notice"><em>You're signed in as <%= current_user.email %></em></p>
           <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to "Register as a Worker", new_worker_path %></li>
+          <li><%= link_to "Register to Worker", new_worker_path %></li>
         <% else %>
-        <li><%= link_to "Register as a Worker", new_worker_path %></li>
-        <li><%= link_to "Register to Post Jobs", new_user_registration_path %></li>
-        <li><%= link_to "Log In as User", new_user_session_path %></li>
+        <li><%= link_to "Register to Work", new_worker_path %></li>
+        <li><%= link_to "Register to Hire", new_user_registration_path %></li>
+        <li><%= link_to "Log In as Employer", new_user_session_path %></li>
         <li><%= link_to "Log In as Worker", new_worker_session_path %></li>
         <% end %>
       </ul>
