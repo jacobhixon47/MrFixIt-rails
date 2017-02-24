@@ -5,8 +5,15 @@ class JobsController < ApplicationController
   end
 
   def new
-   @job = Job.new
-   render :new
+    if user_signed_in?
+      @job = Job.new
+    elsif worker_signed_in?
+      flash[:notice] = "You are currently logged in as a worker. Please log in as an employer to post jobs."
+      redirect_to jobs_path
+    else
+      flash[:alert] = "You must be signed in as an employer to post jobs. Please create an account or sign in."
+      redirect_to new_user_registration_path
+    end
   end
 
   def show
@@ -16,6 +23,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
+      flash[:notice] = "Your job was posted successfully!"
       redirect_to jobs_path
     else
       render :new
