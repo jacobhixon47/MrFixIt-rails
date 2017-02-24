@@ -50,7 +50,8 @@ class JobsController < ApplicationController
   def active
     @job = Job.find(params[:id])
     if worker_signed_in? && current_worker.id === @job.worker_id
-      if @job.update(active: true)
+      @job.active = true
+      if @job.save
         respond_to do |format|
           format.html { redirect_to job_path(@job) }
           format.js
@@ -68,8 +69,10 @@ class JobsController < ApplicationController
 # ------ mark job as complete ----------------
   def complete
     @job = Job.find(params[:id])
-    if worker_signed_in? && current_worker.id === @job.worker_id && @job.active?
-      if @job.update(completed: true)
+    if worker_signed_in? && current_worker.id === @job.worker_id && @job.active === true
+      @job.completed = true
+      @job.active = false
+      if @job.save
         respond_to do |format|
           format.html { redirect_to job_path(@job) }
           format.js

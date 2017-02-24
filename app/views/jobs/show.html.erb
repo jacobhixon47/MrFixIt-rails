@@ -1,13 +1,25 @@
 <div id='job-show-section'>
   <h1> <%= @job.title %> </h1>
 
+  <!-- mark job as active -->
   <h3><%= @job.description %></h3>
-  <% if worker_signed_in? && @job.worker_id === current_worker.id && !@job.active %>
+  <% if worker_signed_in? && @job.worker_id === current_worker.id && !@job.active && !@job.completed %>
     <%= link_to "mark job as active", active_path(@job), remote: true, :id => 'activate-job' %>
-  <% elsif worker_signed_in? && @job.worker_id === current_worker.id && @job.active %>
+
+  <!-- mark job as complete -->
+  <% elsif worker_signed_in? && @job.worker_id === current_worker.id && @job.active && !@job.completed %>
+    <p style='color: green;'>This job is active</p>
     <%= link_to "mark job as complete", complete_path(@job), remote: true, :id => 'complete-job' %>
+
+  <!-- in case no user signed in  -->
   <% elsif @job.active %>
     <p style='color: green;'>This job is active</p>
+
+  <!-- if job is completed -->
+  <% elsif @job.completed %>
+    <p style='color: green;'>This job has been completed</p>
+
+  <!-- if job is still pending -->
   <% elsif @job.pending %>
     <p>Someone has already claimed this job; it's currently pending.</p>
   <% else %>
