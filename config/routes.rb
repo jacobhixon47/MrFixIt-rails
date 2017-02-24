@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   resources :jobs
   resources :workers
+
+  get 'jobs/:id/active' => 'jobs#active', as: 'active'
+  get 'jobs/:id/complete' => 'jobs#complete', as: 'complete'
 end
