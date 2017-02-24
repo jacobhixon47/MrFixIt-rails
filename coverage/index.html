@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-24T09:11:29-08:00">2017-02-24T09:11:29-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-24T09:48:32-08:00">2017-02-24T09:48:32-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>39</b> files in total.
-    <b>251</b> relevant lines. 
-    <span class="green"><b>251</b> lines covered</span> and
+    <b>249</b> relevant lines. 
+    <span class="green"><b>249</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -83,9 +83,9 @@
       <tr>
         <td class="strong"><a href="#1818226f05e8a4fba75676238d34aaf267ab4783" class="src_link" title="app/controllers/jobs_controller.rb">app/controllers/jobs_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>56</td>
-        <td>34</td>
-        <td>34</td>
+        <td>55</td>
+        <td>33</td>
+        <td>33</td>
         <td>0</td>
         <td>1.6</td>
       </tr>
@@ -393,9 +393,9 @@
       <tr>
         <td class="strong"><a href="#d23caeb6f685efc5a02d61e03fa1efde27e0bff4" class="src_link" title="spec/features/claim_job_pages_spec.rb">spec/features/claim_job_pages_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>29</td>
-        <td>22</td>
-        <td>22</td>
+        <td>28</td>
+        <td>21</td>
+        <td>21</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -581,8 +581,8 @@
     <h3>app/controllers/jobs_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>34</b> relevant lines. 
-      <span class="green"><b>34</b> lines covered</span> and
+      <b>33</b> relevant lines. 
+      <span class="green"><b>33</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -704,8 +704,8 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="20">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="5" data-linenumber="20">
+          <span class="hits">5</span>
           
           <code class="ruby">    @job = Job.find(params[:id])</code>
         </li>
@@ -803,7 +803,7 @@
         <li class="covered" data-hits="3" data-linenumber="36">
           <span class="hits">3</span>
           
-          <code class="ruby">    if worker_signed_in?</code>
+          <code class="ruby">    if current_worker</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
@@ -821,106 +821,100 @@
         <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">          flash[:notice] = &quot;You&#39;ve successfully claimed this job.&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="40">
-          <span class="hits">2</span>
-          
           <code class="ruby">          format.html { redirect_to job_path(@job) }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
           <code class="ruby">          format.js</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="44">
+        <li class="covered" data-hits="2" data-linenumber="43">
           <span class="hits">2</span>
           
           <code class="ruby">    elsif user_signed_in? || !user_signed_in?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
+        <li class="covered" data-hits="2" data-linenumber="44">
           <span class="hits">2</span>
           
           <code class="ruby">      flash[:notice] = &#39;You must have a worker account to claim a job. Register for one using the link in the navbar above.&#39;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="46">
+        <li class="covered" data-hits="2" data-linenumber="45">
           <span class="hits">2</span>
           
           <code class="ruby">      redirect_to job_path(@job)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="52">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
           <code class="ruby">  def job_params</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
+        <li class="covered" data-hits="2" data-linenumber="52">
           <span class="hits">2</span>
           
           <code class="ruby">    params.require(:job).permit(:title, :description)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby">end</code>
@@ -5021,8 +5015,8 @@
     <h3>spec/features/claim_job_pages_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>22</b> relevant lines. 
-      <span class="green"><b>22</b> lines covered</span> and
+      <b>21</b> relevant lines. 
+      <span class="green"><b>21</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5090,115 +5084,109 @@
           <code class="ruby">    expect(page).to have_content &#39;successfully claimed this job&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="11">
           
-          <code class="ruby">    expect(page).to have_content &#39;Someone has already claimed this job&#39;</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">  it &quot;redirects if user signed in&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">    user = FactoryGirl.create(:user)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">    login_as(user, :scope =&gt; :user)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">    job = FactoryGirl.create(:job)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit job_path(job)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">    visit job_path(job)</code>
+          <code class="ruby">    click_on &#39;click here to claim it now&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    click_on &#39;click here to claim it now&#39;</code>
+          <code class="ruby">    expect(page).to have_content &#39;must have a worker account&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="20">
           
-          <code class="ruby">    expect(page).to have_content &#39;must have a worker account&#39;</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
           <code class="ruby">  it &quot;redirects if no user or worker signed in&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="24">
+        <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
           <code class="ruby">    job = FactoryGirl.create(:job)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
           <code class="ruby">    visit job_path(job)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
           <code class="ruby">    click_on &#39;click here to claim it now&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="27">
+        <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content &#39;must have a worker account&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">end</code>

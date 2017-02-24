@@ -8,7 +8,6 @@ describe "claim a job path", js: true do
     visit job_path(job)
     click_on 'click here to claim it now'
     expect(page).to have_content 'successfully claimed this job'
-    expect(page).to have_content 'Someone has already claimed this job'
   end
 
   it "redirects if user signed in" do

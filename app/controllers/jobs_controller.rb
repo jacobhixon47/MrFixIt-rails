@@ -33,10 +33,9 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    if worker_signed_in?
+    if current_worker
       if @job.update(pending: true, worker_id: current_worker.id)
         respond_to do |format|
-          flash[:notice] = "You've successfully claimed this job."
           format.html { redirect_to job_path(@job) }
           format.js
         end
