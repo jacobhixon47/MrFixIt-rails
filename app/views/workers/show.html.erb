@@ -1,7 +1,36 @@
-<h1><%= current_worker.email %>'s claimed jobs:</h1>
-
-<ul>
-<% current_worker.jobs.each do |job| %>
-<li><%= link_to job.title, job_path(job) %></li>
-<% end %>
-</ul>
+<div class="row">
+  <h1><%= current_worker.email %>'s jobs:</h1>
+  <!-- claimed column -->
+  <div class="col-sm-4 col-xs-12" id='claimed-column'>
+    <h3>Claimed</h3><hr>
+    <ul class='profile-list'>
+      <% current_worker.jobs.each do |job| %>
+        <% if !job.active && !job.completed %>
+          <li><%= link_to job.title, job_path(job) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <!-- active column -->
+  <div class="col-sm-4 col-xs-12" id='active-column'>
+    <h3>Active</h3><hr>
+    <ul class='profile-list'>
+      <% current_worker.jobs.each do |job| %>
+        <% if job.active && !job.completed %>
+          <li><%= link_to job.title, job_path(job) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <!-- completed column -->
+  <div class="col-sm-4 col-xs-12" id='completed-column'>
+    <h3>Completed</h3><hr>
+    <ul class='profile-list'>
+      <% current_worker.jobs.each do |job| %>
+        <% if !job.active && job.completed %>
+          <li><%= link_to job.title, job_path(job) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

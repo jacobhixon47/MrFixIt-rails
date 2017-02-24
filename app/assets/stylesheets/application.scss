@@ -16,45 +16,31 @@
  @import "bootstrap-sprockets";
  @import 'bootstrap';
 
+ $blue : #2EFFD1;
+ $green : #2AE888;
+ $yellow : #88FF2E;
+ $grey : #60998D;
+ $dark-blue : #1A8DA5;
+
 body {
   margin: 0;
   padding: 0;
   margin-top: -10px;
+  background-color: $grey;
+  color: #fff;
 }
 
  .content {
    margin: 40px;
  }
 
- .navigation-menu ul {
-   list-style: none;
-   background-color: #444;
-   text-align: center;
-   margin: 0;
- }
-
-.navigation-menu li {
-  font-size: 1.2em;
-  display: inline-block;
-  width: 10%;
-}
-
-.navigation-menu a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-}
-
-.navigation-menu a:hover {
-  background-color: #f7b50c;
-}
-
 .header {
-  background-color: #888;
+  background-color: $grey;
   text-align: center;
   margin: -16px;
   margin-top: -22px;
   padding: 15px;
+  color: #fff;
 }
 
 .image {
@@ -72,4 +58,59 @@ img {
 
 nav {
   padding-right: 1%;
+  background-color: $dark-blue !important;
+  border: 0px !important;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.nav-list li a, .navbar-brand {
+ color: #fff !important;
+}
+
+.nav-list li a:hover, .navbar-brand:hover {
+ color: #ddd !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.profile-list li a {
+  color: #555;
+}
+
+.profile-list li a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+#claimed-column {
+  background-color: $blue;
+  padding-bottom: 2%;
+  color: #555;
+}
+
+#active-column {
+  background-color: $yellow;
+  padding-bottom: 2%;
+  color: #555;
+}
+
+#completed-column {
+  background-color: $green;
+  padding-bottom: 2%;
+  color: #555;
+}
+
+.jobs-col {
+  border: 1px #fff solid;
 }

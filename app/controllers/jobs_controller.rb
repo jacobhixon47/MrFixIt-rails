@@ -1,9 +1,8 @@
 class JobsController < ApplicationController
-
   def index
     @jobs = Job.all
   end
-
+  
   def new
     if user_signed_in?
       @job = Job.new
