@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import 'bootstrap';
 
 body {
   margin: 0;
@@ -61,4 +63,13 @@ body {
 
 .page-title {
   color: #f7b50c;
+}
+
+img {
+  width: 500px;
+  height: auto;
+}
+
+nav {
+  padding-right: 1%;
 }
