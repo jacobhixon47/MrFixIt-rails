@@ -10,4 +10,20 @@ describe "creates a worker and logs them in" do
     expect(page).to have_content 'signed up successfully'
     expect(page).to have_content "You're signed into"
   end
+  it "redirects to profile if worker signed in already" do
+    worker = FactoryGirl.create(:worker)
+    login_as(worker, :scope => :worker)
+    visit new_worker_path
+    expect(page).to have_content 'already logged into'
+  end
+  it "signs out a signed-in basic user" do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    visit new_worker_path
+    expect(page).to have_content 'Log In as Employer'
+  end
+  it "takes non-logged-in users to registration page" do
+    visit new_worker_path
+    expect(page).to have_content 'Sign up'
+  end
 end
