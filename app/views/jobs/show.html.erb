@@ -4,6 +4,8 @@
   <h3><%= @job.description %></h3>
   <% if worker_signed_in? && @job.worker_id === current_worker.id && !@job.active %>
     <%= link_to "mark job as active", active_path(@job), remote: true, :id => 'activate-job' %>
+  <% elsif worker_signed_in? && @job.worker_id === current_worker.id && @job.active %>
+    <%= link_to "mark job as complete", complete_path(@job), remote: true, :id => 'complete-job' %>
   <% elsif @job.active %>
     <p style='color: green;'>This job is active</p>
   <% elsif @job.pending %>

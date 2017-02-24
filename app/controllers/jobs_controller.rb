@@ -64,6 +64,24 @@ class JobsController < ApplicationController
     end
   end
 
+  def complete
+    @job = Job.find(params[:id])
+    if worker_signed_in? && current_worker.id === @job.worker_id && @job.active?
+      if @job.update(completed: true)
+        respond_to do |format|
+          format.html { redirect_to job_path(@job) }
+          format.js
+        end
+      end
+    elsif user_signed_in? || !user_signed_in? && !worker_signed_in?
+      flash[:notice] = 'You must have a worker account to use this feature. Register for one using the link in the navbar above.'
+      redirect_to job_path(@job)
+    elsif !@job.active?
+      flash[:notice] = 'This job has not been activated yet and therefore cannot be marked as complete.'
+      redirect_to job_path(@job)
+    end
+  end
+
 private
 
   def job_params

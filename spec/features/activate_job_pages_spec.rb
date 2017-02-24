@@ -7,7 +7,7 @@ describe "mark a job as active path", js: true do
     job = FactoryGirl.create(:job, :worker_id => worker.id)
     visit job_path(job)
     click_on 'mark job as active'
-    expect(page).to have_content 'You have marked this job'
+    expect(page).to have_content 'You have marked this job as active'
   end
   it "redirects if wrong worker signed in" do
     worker = FactoryGirl.create(:worker)
