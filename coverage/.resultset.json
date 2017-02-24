@@ -26,7 +26,6 @@
         1,
         1,
         null,
-        null,
         null
       ],
       "/Users/Jacob/Code/projects/fixit/spec/rails_helper.rb": [
@@ -647,7 +646,7 @@
         null,
         null,
         1,
-        0,
+        5,
         null,
         null,
         1,
@@ -661,16 +660,14 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
+        3,
+        3,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
         null,
         0,
         0,
@@ -695,8 +692,8 @@
       "/Users/Jacob/Code/projects/fixit/app/controllers/workers_controller.rb": [
         1,
         1,
-        1,
-        1,
+        2,
+        2,
         null,
         null,
         1,
@@ -788,6 +785,34 @@
         null,
         null
       ],
+      "/Users/Jacob/Code/projects/fixit/spec/features/claim_job_pages_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/Jacob/Code/projects/fixit/spec/models/job_spec.rb": [
         1,
         null,
@@ -813,6 +838,6 @@
         null
       ]
     },
-    "timestamp": 1487921256
+    "timestamp": 1487922566
   }
 }

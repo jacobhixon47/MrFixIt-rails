@@ -32,18 +32,16 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    if current_worker
-      if @job.update(pending: true, worker_id: current_worker.id)
-        redirect_to worker_path(current_worker)
-        flash[:notice] = "You've successfully claimed this job."
-      else
-        render :show
-        flash[:notice] = "Something went wrong!"
-      end
-    else
-      # We need to streamline this process better in the future! - Mr. Fix-It.
+    if worker_signed_in?
+      @job.update(pending: true, worker_id: current_worker.id)
+      redirect_to worker_path(current_worker)
+      flash[:notice] = "You've successfully claimed this job."
+    elsif user_signed_in? || !user_signed_in?
       flash[:notice] = 'You must have a worker account to claim a job. Register for one using the link in the navbar above.'
       redirect_to job_path(@job)
+    else
+      render :show
+      flash[:notice] = "Something went wrong!"
     end
   end
 

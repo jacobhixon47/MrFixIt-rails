@@ -10,7 +10,7 @@ describe "post a job" do
     click_on 'Create Job'
     expect(page).to have_content 'job was posted successfully'
   end
-  
+
   it "redirects to jobs page if worker signed in" do
     worker = FactoryGirl.create(:worker)
     login_as(worker, :scope => :worker)
@@ -22,5 +22,4 @@ describe "post a job" do
     visit new_job_path
     expect(page).to have_content 'must be signed in as an employer'
   end
-
 end
