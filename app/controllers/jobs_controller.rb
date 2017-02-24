@@ -26,6 +26,7 @@ class JobsController < ApplicationController
       flash[:notice] = "Your job was posted successfully!"
       redirect_to jobs_path
     else
+      flash[:alert] = 'There was a problem posting your job. Please try again.'
       render :new
     end
   end
@@ -39,9 +40,6 @@ class JobsController < ApplicationController
     elsif user_signed_in? || !user_signed_in?
       flash[:notice] = 'You must have a worker account to claim a job. Register for one using the link in the navbar above.'
       redirect_to job_path(@job)
-    else
-      render :show
-      flash[:notice] = "Something went wrong!"
     end
   end
 

@@ -22,4 +22,13 @@ describe "post a job" do
     visit new_job_path
     expect(page).to have_content 'must be signed in as an employer'
   end
+
+  it "redirects to new job page if job cannot be saved" do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    visit new_job_path
+    fill_in 'Title', :with => 'Fix the sink'
+    click_on 'Create Job'
+    expect(page).to have_content 'Please try again'
+  end
 end
