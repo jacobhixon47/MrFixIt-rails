@@ -46,6 +46,7 @@ class JobsController < ApplicationController
     end
   end
 
+  # ------ mark job as active ----------------
   def active
     @job = Job.find(params[:id])
     if worker_signed_in? && current_worker.id === @job.worker_id
@@ -64,6 +65,7 @@ class JobsController < ApplicationController
     end
   end
 
+# ------ mark job as complete ----------------
   def complete
     @job = Job.find(params[:id])
     if worker_signed_in? && current_worker.id === @job.worker_id && @job.active?
@@ -76,6 +78,9 @@ class JobsController < ApplicationController
     elsif user_signed_in? || !user_signed_in? && !worker_signed_in?
       flash[:notice] = 'You must have a worker account to use this feature. Register for one using the link in the navbar above.'
       redirect_to job_path(@job)
+    elsif current_worker.id != @job.worker_id
+      flash[:notice] = 'Someone else has already claimed this job. Please try a job that you have claimed.'
+      redirect_to job_path(@job)
     elsif !@job.active?
       flash[:notice] = 'This job has not been activated yet and therefore cannot be marked as complete.'
       redirect_to job_path(@job)
@@ -83,9 +88,7 @@ class JobsController < ApplicationController
   end
 
 private
-
   def job_params
     params.require(:job).permit(:title, :description)
   end
-
 end
