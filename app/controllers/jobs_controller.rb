@@ -46,6 +46,24 @@ class JobsController < ApplicationController
     end
   end
 
+  def active
+    @job = Job.find(params[:id])
+    if worker_signed_in? && current_worker.id === @job.worker_id
+      if @job.update(active: true)
+        respond_to do |format|
+          format.html { redirect_to job_path(@job) }
+          format.js
+        end
+      end
+    elsif user_signed_in? || !user_signed_in? && !worker_signed_in?
+      flash[:notice] = 'You must have a worker account to use this feature. Register for one using the link in the navbar above.'
+      redirect_to job_path(@job)
+    elsif current_worker.id != @job.worker_id
+      flash[:notice] = 'Someone else has already claimed this job. Please try a job that you have claimed.'
+      redirect_to job_path(@job)
+    end
+  end
+
 private
 
   def job_params

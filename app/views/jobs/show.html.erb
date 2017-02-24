@@ -2,11 +2,14 @@
   <h1> <%= @job.title %> </h1>
 
   <h3><%= @job.description %></h3>
-
-  <% if @job.pending %>
-  <p>Someone has already claimed this job; it's currently pending.</p>
+  <% if worker_signed_in? && @job.worker_id === current_worker.id && !@job.active %>
+    <%= link_to "mark job as active", active_path(@job), remote: true, :id => 'activate-job' %>
+  <% elsif @job.active %>
+    <p style='color: green;'>This job is active</p>
+  <% elsif @job.pending %>
+    <p>Someone has already claimed this job; it's currently pending.</p>
   <% else %>
-  <p id='not-claimed'>No one has claimed this job!</p>
-  <%= link_to "click here to claim it now", job_path(@job), remote: true, :id => @job.id.to_s + '-claim-job', :method => "patch" %>
+    <p id='not-claimed'>No one has claimed this job!</p>
+    <%= link_to "click here to claim it now", job_path(@job), remote: true, :id => 'claim-job', :method => "patch" %>
   <% end %>
 </div>
